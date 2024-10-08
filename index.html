@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown e Immagini</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        #countdown {
+            font-size: 2em;
+            margin-top: 50px;
+        }
+        .images-container {
+            display: none;
+            margin-top: 50px;
+        }
+        .image-item {
+            margin: 20px;
+            display: inline-block;
+            text-align: center;
+        }
+        .image-item img {
+            max-width: 300px;
+            border: 2px solid #000;
+            border-radius: 10px;
+        }
+        .dedica{
+            margin-left: 200px;
+            margin-right: 200px;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="descrizione"><h1>Conto alla rovescia verso il giorno piú speciale dell'anno!!</h1></div>
+    <div id="countdown"></div>
+
+    <div class="images-container" id="imagesContainer">
+        <h1>🎉🎉🎉 Buon Compleanno 🎉🎉🎉</h1>
+        <h3 class="dedica">Finalmente anche quest'anno é arrivato il tuo compleanno. Ogni anno sono sempre piú felice trascorrerlo con te e di vederti col sorriso.<br>
+            É questo quello che ti meriti ❤️<br>
+            Ho pensato a questo regalo perché so quanto ci tieni a migliorarti sempre di più e a crescere personalmente (anche perché a livello di coppia migliori giá la nostra relazione e la rendi speciale ogni giorno di piú).</h3>
+        <div class="image-item">
+            <h2>Corso di Gestione del Tempo: Time Management e Produttività</h2>
+            <img src="./corso1.jpg" alt="Immagine 1">
+            <p>Rivoluziona la tua vita privata e lavorativa. Elimina il "Non ho Tempo" e fai più spazio all'interno delle tue giornate.</p>
+            <a href="https://www.udemy.com/course/corso-time-management-gestione-del-tempo">Link al corso!</a>
+        </div>
+        <div class="image-item">
+            <h2>Linguaggio del Corpo e Micro Espressioni</h2>
+            <img src="./corso2.jpg" alt="Immagine 2">
+            <p>Scopri con uno sguardo: Cosa provano gli altri. Cosa pensano di te. Chi sta mentendo. I segreti del linguaggio del corpo.</p>
+            <a href="https://www.udemy.com/course/linguaggio-del-corpo-e-micro-espressioni-corso-completo">Link al corso!</a>
+        </div>
+        <div class="image-item">
+            <h2>Comunicazione Efficace Masterclass : Psicologia e Segreti</h2>
+            <img src="./corso3.jpg" alt="Immagine 3">
+            <p>Comprendere e Gestire i 5 pilastri e i 3 aspetti della Comunicazione, passando da PNL, a Public Speaking e Persuasione.</p>
+            <a href="https://www.udemy.com/course/comunicazione-efficace-masterclass-psicologia-e-segreti/">Link al corso!</a>
+        </div>
+    </div>
+
+    <script>
+        // Data obiettivo: 14 ottobre 2024
+        const targetDate = new Date('2024-10-14T00:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeRemaining = targetDate - now;
+
+            if (timeRemaining > 0) {
+                // Calcola giorni, ore, minuti e secondi rimanenti
+                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+                document.getElementById("countdown").innerHTML =
+                    days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+            } else {
+                // Una volta raggiunta o superata la data
+                document.getElementById("countdown").style.display = "none";
+                document.getElementById("descrizione").style.display = "none";
+                document.getElementById("imagesContainer").style.display = "block";
+            }
+        }
+
+        // Aggiorna il conto alla rovescia ogni secondo
+        setInterval(updateCountdown, 1000);
+
+        // Verifica subito la data e imposta il contenuto
+        updateCountdown();
+    </script>
+
+</body>
+</html>
+
